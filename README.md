@@ -1,2 +1,2 @@
-# publiczny
-jakiś opis
+# README
+albo nie, nie czytaj, szkoda oczu

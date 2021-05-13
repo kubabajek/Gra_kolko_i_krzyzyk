@@ -1,4 +1,4 @@
-#Definicja funkcji odpowiedzialnej za wygląd planszy
+#Definicja funkcji odpowiedzialnej za wygląd planszy 3x3
 def print_tic_tac_toe(values):
     print("\n")
     print("\t     |     |")
@@ -14,3 +14,12 @@ def print_tic_tac_toe(values):
     print("\t  {}  |  {}  |  {}".format(values[6], values[7], values[8]))
     print("\t     |     |")
     print("\n")
+
+#Definicja funkcji odpowiedzialnej za zapamiętywanie stanu każdego pola, forma listy, puste, krzyżyk, kółko
+def single_game(cur_player):
+    # Represents the Tic Tac Toe
+    values = [' ' for x in range(9)]
+
+    # Stores the positions occupied by X and O
+    player_pos = {'X': [], 'O': []}
+

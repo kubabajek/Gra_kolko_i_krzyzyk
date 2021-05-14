@@ -3,6 +3,7 @@ import os
 import basicnobot
 import nobot4x4
 import nobot5x5
+import bot3x3
 def Zliczanie():
     global ulubionytryb #nie ma go w pliku
     global zagran # nie ma go w pliku
@@ -15,7 +16,7 @@ def Zliczanie():
     global t32
     ulubionytryb = 'Brak, pokaze sie wkrotce =]'
     if os.path.exists('zliczenia.txt') == False:
-        plikzliczenia = open('zliczenia.txt','w') #STRUKTURA PLIKU: uruchomie, kolejnetryby11, 12, 13, 21, 22 ... wszystko w innych wierszach
+        plikzliczenia = open('zliczenia.txt','w') #STRUKTURA PLIKU: uruchomien, kolejnetryby11, 12, 13, 21, 22 ... wszystko w innych wierszach
         plikzliczenia.write("1\n0\n0\n0\n0\n0\n0")
         plikzliczenia.close()
     plikzliczenia = open('zliczenia.txt', 'r')
@@ -28,8 +29,6 @@ def Zliczanie():
     t22=int(linie[4])
     t31=int(linie[5])
     t32=int(linie[6])
-    print (t11, t12, t21, t22, t31, t32)
-
 
 #Ustalanie ulubionego trybu gry
     if (t11 > max(t12,t21,t22,t31,t32)) :
@@ -85,9 +84,9 @@ def main() :
                 global t11
                 t11+=basicnobot.main()
             elif (tryb1 == 2) :
-                print ('Gra z botem niezaimplementowana') #3x3 GRA Z KOMPUTEREM TO DO
+                print ('Rozpoczynam gre na planszy 3x3 z botem')
                 global t12
-                t12+=1
+                t12+=bot3x3.main()
 
         if (tryb == 2) :
             tryb2 = int (input('Wybrales gre 4x4, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n0 - Cofnij\n'))

@@ -4,24 +4,24 @@ def print_tic_tac_toe(values):
     print("\t  {}  |  {}  |  {}  |  {}  |  {}".format(values[0], values[1], values[2], values[3], values[4]))
     print('\t_____|_____|_____|_____|_____')
     print("\t     |     |     |     |")
-    print("\t  {}  |  {}  |  {}  |  {}  |  {}".format(values[5], values[6], values[7], values[8], values[[9]]))
+    print("\t  {}  |  {}  |  {}  |  {}  |  {}".format(values[5], values[6], values[7], values[8], values[9]))
     print('\t_____|_____|_____|_____|_____')
     print("\t     |     |     |     |")
     print("\t  {}  |  {}  |  {}  |  {}  |  {}".format(values[10], values[11], values[12], values[13], values[14]))
     print('\t_____|_____|_____|_____|_____')
-    print("\t     |     |     |    |")
-    print("\t  {}  |  {}  |  {}  |  {}  |  {}".format(values[15], values[16], values[17], values[18], values [19]))
+    print("\t     |     |     |     |")
+    print("\t  {}  |  {}  |  {}  |  {}  |  {}".format(values[15], values[16], values[17], values[18], values[19]))
     print('\t_____|_____|_____|_____|_____')
     print("\t     |     |     |     |")
-    print("\t  {}  |  {}  |  {}  |  {}  |  {}".format(values[20], values[21], values[22], values[23], values[[24]]))
-    print("\t     |     |     |    |")
+    print("\t  {}  |  {}  |  {}  |  {}  |  {}".format(values[20], values[21], values[22], values[23], values[24]))
+    print("\t     |     |     |     |")
     print("\n")
 
 
 # Function to print the score-board
 def print_scoreboard(score_board):
     print("\t--------------------------------")
-    print("\t              SCOREBOARD       ")
+    print("\t          TABLICA WYNIKOW       ")
     print("\t--------------------------------")
 
     players = list(score_board.keys())
@@ -69,20 +69,20 @@ def single_game(cur_player):
 
         # Try exception block for MOVE input
         try:
-            print("Player ", cur_player, " turn. Which box? : ", end="")
+            print("Ruch gracza:  ", cur_player, ". Ktore pole? : ", end="")
             move = int(input())
         except ValueError:
-            print("Wrong Input!!! Try Again")
+            print("Nieprawidlowa wartosc, wpisz jeszcze raz")
             continue
 
         # Sanity check for MOVE inout
         if move < 1 or move > 25:
-            print("Wrong Input!!! Try Again")
+            print("Nieprawidlowa wartosc, wpisz jeszcze raz")
             continue
 
         # Check if the box is not occupied already
         if values[move - 1] != ' ':
-            print("Place already filled. Try again!!")
+            print("To pole jest juz zajete, wybierz inne")
             continue
 
         # Update game information
@@ -96,14 +96,14 @@ def single_game(cur_player):
         # Function call for checking win
         if check_win(player_pos, cur_player):
             print_tic_tac_toe(values)
-            print("Player ", cur_player, " has won the game!!")
+            print("Gracz: ", cur_player, " zwyciezyl w pieknym stylu!!")
             print("\n")
             return cur_player
 
         # Function call for checking draw game
         if check_draw(player_pos):
             print_tic_tac_toe(values)
-            print("Game Drawn")
+            print("Remis")
             print("\n")
             return 'D'
 
@@ -116,8 +116,8 @@ def single_game(cur_player):
 
 def main():
     liczbagier = 0
-    player1 = input("Gracz 1, podaj imie : ")
-    player2 = input("Gracz 2, podaj imie : ")
+    player1 = input("Graczu 1, podaj imie : ")
+    player2 = input("Graczu 2, podaj imie : ")
 
 
     # Stores the player who chooses X and O
@@ -138,16 +138,16 @@ def main():
     while True:
 
         # Player choice Menu
-        print("Turn to choose for", cur_player)
-        print("Enter 1 for X")
-        print("Enter 2 for O")
-        print("Enter 3 to Quit")
+        print("Gracz", cur_player,"wybiera czym bedzie")
+        print("1 - X")
+        print("2 - O")
+        print("3 - Opusc gre")
 
         # Try exception for CHOICE input
         try:
             choice = int(input())
         except ValueError:
-            print("Wrong Input!!! Try Again\n")
+            print("Nieprawidlowa wartosc, wpisz dobra\n")
             continue
 
         # Conditions for player choice
@@ -168,12 +168,12 @@ def main():
                 player_choice['X'] = player1
 
         elif choice == 3:
-            print("Final Scores")
+            print("Punktacja")
             print_scoreboard(score_board)
             break
 
         else:
-            print("Wrong Choice!!!! Try Again\n")
+            print("Nieprawidlowa wartosc, wpisz dobra\n")
 
         # Stores the winner in a single game of Tic Tac Toe
         winner = single_game(options[choice - 1])

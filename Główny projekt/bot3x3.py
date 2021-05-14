@@ -1,3 +1,4 @@
+import random
 def print_tic_tac_toe(values):
     print("\n")
     print("\t     |     |")
@@ -50,7 +51,7 @@ def check_draw(player_pos):
 
 
 # Function for a single game of Tic Tac Toe
-def single_game(cur_player):
+def single_game(cur_player,bot):
     # Represents the Tic Tac Toe
     values = [' ' for x in range(9)]
 
@@ -61,24 +62,43 @@ def single_game(cur_player):
     while True:
         print_tic_tac_toe(values)
 
-        # Try exception block for MOVE input
-        try:
-            print("Ruch gracza:  ", cur_player, ". Ktore pole? : ", end="")
-            move = int(input())
-        except ValueError:
-            print("Nieprawidlowa wartosc, wpisz jeszcze raz")
-            continue
+        # Try exception block for MOVE input, rozegranie bota
+        if (cur_player==bot):
+            try:
+                print("Ruch gracza:  ", cur_player, ". Ktore pole? : ", end="")
+                move = random.randint(1,9)
+            except ValueError:
+                print("Nieprawidlowa wartosc, wpisz jeszcze raz")
+                continue
 
         # Sanity check for MOVE inout
-        if move < 1 or move > 9:
-            print("Nieprawidlowa wartosc, wpisz jeszcze raz")
-            continue
+            if move < 1 or move > 9:
+                print("Nieprawidlowa wartosc, wpisz jeszcze raz")
+                continue
 
         # Check if the box is not occupied already
-        if values[move - 1] != ' ':
-            print("To pole jest juz zajete, wybierz inne")
-            continue
+            if values[move - 1] != ' ':
+                print("To pole jest juz zajete, wybierz inne")
+                continue
+  #Normalne rozegranie
+        elif (cur_player!=bot) :
+            try:
+                print("Ruch gracza:  ", cur_player, ". Ktore pole? : ", end="")
+                move = int(input())
+            except ValueError:
+                print("Nieprawidlowa wartosc, wpisz jeszcze raz")
+                continue
 
+        # Sanity check for MOVE inout
+            if move < 1 or move > 9:
+                print("Nieprawidlowa wartosc, wpisz jeszcze raz")
+                continue
+
+        # Check if the box is not occupied already
+            if values[move - 1] != ' ':
+                print("To pole jest juz zajete, wybierz inne")
+                continue
+#################################################################3
         # Update game information
 
         # Updating grid status
@@ -110,8 +130,8 @@ def single_game(cur_player):
 
 def main():
     liczbagier = 0
-    player1 = input("Graczu 1, podaj imie : ")
-    player2 = input("Graczu 2, podaj imie : ")
+    player1 = input("Graczu, podaj imie : ")
+    player2 = 'Stupid bot'
 
 
     # Stores the player who chooses X and O
@@ -132,7 +152,7 @@ def main():
     while True:
 
         # Player choice Menu
-        print("Gracz", cur_player,"wybiera czym bedzie")
+        print("Czym ma byc:", cur_player,"?")
         print("1 - X")
         print("2 - O")
         print("3 - Opusc gre")
@@ -150,6 +170,7 @@ def main():
             player_choice['X'] = cur_player
             if cur_player == player1:
                 player_choice['O'] = player2
+                bot=options[1];
             else:
                 player_choice['O'] = player1
 
@@ -158,6 +179,7 @@ def main():
             player_choice['O'] = cur_player
             if cur_player == player1:
                 player_choice['X'] = player2
+                bot=options[0]
             else:
                 player_choice['X'] = player1
 
@@ -170,7 +192,7 @@ def main():
             print("Nieprawidlowa wartosc, wpisz dobra\n")
 
         # Stores the winner in a single game of Tic Tac Toe
-        winner = single_game(options[choice - 1])
+        winner = single_game(options[choice - 1],bot)
 
         # Edits the scoreboard according to the winner
         if winner != 'D':

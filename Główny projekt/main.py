@@ -1,8 +1,9 @@
 import time
 import basicnobot
-def Zliczanie():
+def Zliczanie(): #Wygląd pliku, kolejne linie, uruchomienia, kolejny tryby 11, 12, 13, 21, 22, 23...
+    global ulubionytryb #nie ma go w pliku
+    global zagran #nie ma go w pliku1
     global uruchomien
-    global ulubionytryb
     global uruchomientryb11
     uruchomien = 1
     uruchomientryb11 = 0

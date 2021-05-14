@@ -1,0 +1,2 @@
+# Repozytorium
+Zróbmy to kurczęę :(

@@ -28,7 +28,7 @@ def Zliczanie():
         ulubionytryb = '3x3 z kolega'
     if (t12 > max(t11,t21)) :
         ulubionytryb = '3x3 z komputerem'
-    zagran = t11 + t12 + t13 + t21
+    zagran = t11 + t12 + t21
 def Zapis_zliczen():
     plikzliczenia = open('zliczenia.txt','w')
     plikzliczenia.write(str(uruchomien+1))
@@ -60,8 +60,7 @@ def main() :
             elif (tryb1 == 1) :
                 print ('\nRozpoczynam gre na planszy 3x3 bez bota\n')
                 global t11
-                t11+=1
-                basicnobot.main()
+                t11+=basicnobot.main()
             elif (tryb1 == 2) :
                 print ('Gra z botem niezaimplementowana') #3x3 GRA Z KOMPUTEREM TO DO
                 global t12

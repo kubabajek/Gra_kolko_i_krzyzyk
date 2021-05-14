@@ -109,6 +109,7 @@ def single_game(cur_player):
 
 
 def main():
+    liczbagier = 0
     player1 = input("Gracz 1, podaj imie : ")
     player2 = input("Gracz 2, podaj imie : ")
 
@@ -145,6 +146,7 @@ def main():
 
         # Conditions for player choice
         if choice == 1:
+            liczbagier += 1
             player_choice['X'] = cur_player
             if cur_player == player1:
                 player_choice['O'] = player2
@@ -152,6 +154,7 @@ def main():
                 player_choice['O'] = player1
 
         elif choice == 2:
+            liczbagier += 1
             player_choice['O'] = cur_player
             if cur_player == player1:
                 player_choice['X'] = player2
@@ -180,3 +183,4 @@ def main():
             cur_player = player2
         else:
             cur_player = player1
+    return liczbagier

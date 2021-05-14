@@ -3,15 +3,12 @@ def print_tic_tac_toe(values):
     print("\t     |     |     |")
     print("\t  {}  |  {}  |  {}  |  {}".format(values[0], values[1], values[2], values[3]))
     print('\t_____|_____|_____')
-
-    print("\t     |     |")
-    print("\t  {}  |  {}  |  {}".format(values[4], values[5], values[6]))
-    print('\t_____|_____|_____')
-
-    print("\t     |     |")
-
-    print("\t  {}  |  {}  |  {}".format(values[8], values[9], values[10]))
-    print("\t     |     |")
+    print("\t     |     |    |")
+    print("\t  {}  |  {}  |  {}  |  {}".format(values[4], values[5], values[6], values[7]))
+    print('\t_____|_____|_____|_____')
+    print("\t     |     |     |")
+    print("\t  {}  |  {}  |  {}  |  {}".format(values[8], values[9], values[10], values[11]))
+    print("\t     |     |     |")
     print("\n")
 
 

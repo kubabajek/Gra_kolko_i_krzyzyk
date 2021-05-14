@@ -102,7 +102,7 @@ def main() :
                 t22+=1
 
         if (tryb == 3) :
-            tryb3 = int (input('Wybrales gre 4x4, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n0 - Cofnij\n'))
+            tryb3 = int (input('Wybrales gre 5x5, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n0 - Cofnij\n'))
             if (tryb3 == 0) :
                 print ("Cofam...")
             elif (tryb3 == 1) :

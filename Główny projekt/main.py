@@ -1,6 +1,7 @@
 import time
 import os
 import basicnobot
+import nobot4x4
 def Zliczanie():
     global ulubionytryb #nie ma go w pliku
     global zagran # nie ma go w pliku
@@ -65,6 +66,18 @@ def main() :
                 print ('Gra z botem niezaimplementowana') #3x3 GRA Z KOMPUTEREM TO DO
                 global t12
                 t12+=1
+        if (tryb == 2) :
+            tryb2 = int (input('Wybrales gre 4x4, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n0 - Cofnij\n'))
+            if (tryb2 == 0) :
+                print ("Cofam...")
+            elif (tryb2 == 1) :
+                print ('\nRozpoczynam gre na planszy 4x4 bez bota\n')
+                global t21
+                t21+= nobot4x4.main()
+            elif (tryb2 == 2) :
+                print ('Gra z botem niezaimplementowana') #4x4 GRA Z KOMPUTEREM TO DO
+                global t22
+                t22+=1
     Zapis_zliczen()
     print ('Zegnaj')
     exit(0)

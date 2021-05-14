@@ -1,19 +1,43 @@
 import time
+import os
 import basicnobot
-def Zliczanie(): #Wygląd pliku, kolejne linie, uruchomienia, kolejny tryby 11, 12, 13, 21, 22, 23...
+def Zliczanie():
     global ulubionytryb #nie ma go w pliku
-    global zagran #nie ma go w pliku1
+    global zagran # nie ma go w pliku
     global uruchomien
-    global uruchomientryb11
-    uruchomien = 1
-    uruchomientryb11 = 0
+    global t11
+    global t12
+    global t13
+    global t21
+    uruchomien=1
+    ulubionytryb = 'Nieustalony'
+    if os.path.exists('zliczenia.txt') == False:
+        plikzliczenia = open('zliczenia.txt','w')
+        plikzliczenia.write("1\n0\n0\n0\n0\n")
+        plikzliczenia.close()
+    plikzliczenia = open('zliczenia.txt', 'r')
+
+    t11 =0
+    t12 =0
+    t13 =0
+    t21 = 0
+
+
+
+
+
+    if (t11 > max(t12,t13,t21)) :
+        ulubionytryb = '3x3 z kolega'
+    if (t12 > max(t11,t13,t21)) :
+        ulubionytryb = '3x3 z komputerem'
+    zagran = t11 + t12 + t13 + t21
 def Zapis_zliczen():
     print()
 def Wstep () :
     print ('\n###################################\nProfesjonalna gra w kolko i krzyzyk\n###################################')
     print ('Uruchomien:',uruchomien)
-    print ('Lacznie zagranych partii: ')
-    print ('Ulubiony tryb gry: ',)
+    print ('Lacznie zagranych partii:',zagran)
+    print ('Ulubiony tryb gry:',ulubionytryb)
     print ('###################################')
     print ('Loading...')
     time.sleep(5)

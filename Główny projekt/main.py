@@ -2,6 +2,7 @@ import time
 import os
 import basicnobot
 import nobot4x4
+import nobot5x5
 def Zliczanie():
     global ulubionytryb #nie ma go w pliku
     global zagran # nie ma go w pliku
@@ -10,10 +11,12 @@ def Zliczanie():
     global t12
     global t21
     global t22
-    ulubionytryb = 'Nieustalony'
+    global t31
+    global t32
+    ulubionytryb = 'Brak, pokaze sie wkrotce =]'
     if os.path.exists('zliczenia.txt') == False:
         plikzliczenia = open('zliczenia.txt','w') #STRUKTURA PLIKU: uruchomie, kolejnetryby11, 12, 13, 21, 22 ... wszystko w innych wierszach
-        plikzliczenia.write("1\n0\n0\n0\n0\n")
+        plikzliczenia.write("1\n0\n0\n0\n0\n0\n0")
         plikzliczenia.close()
     plikzliczenia = open('zliczenia.txt', 'r')
     linie=plikzliczenia.readlines()
@@ -23,18 +26,25 @@ def Zliczanie():
     t12=int(linie[2])
     t21=int(linie[3])
     t22=int(linie[4])
+    t31=int(linie[5])
+    t32=int(linie[6])
+    print (t11, t12, t21, t22, t31, t32)
 
 
 #Ustalanie ulubionego trybu gry
-    if (t11 > max(t12,t21,t22)) :
+    if (t11 > max(t12,t21,t22,t31,t32)) :
         ulubionytryb = '3x3 z kolega'
-    if (t12 > max(t11,t21, t22)) :
+    if (t12 > max(t11,t21, t22,t31,t32)) :
         ulubionytryb = '3x3 z komputerem'
-    if (t21 > max(t11, t12, t22)) :
+    if (t21 > max(t11, t12, t22,t31,t32)) :
         ulubionytryb = '4x4 z kolega'
-    if (t22 > max(t11, t12, t21)) :
+    if (t22 > max(t11, t12, t21,t31,t32)) :
         ulubionytryb = '4x4 z komputerem'
-    zagran = t11 + t12 + t21 + t22
+    if (t31 > max(t11, t12, t21,t22,t32)) :
+        ulubionytryb = '5x5 z kolega'
+    if (t32 > max(t11, t12, t21,t22,t31)) :
+        ulubionytryb = '5x5 z komputerem'
+    zagran = t11 + t12 + t21 + t22 + t31 + t32
 def Zapis_zliczen():
     plikzliczenia = open('zliczenia.txt','w')
     plikzliczenia.write(str(uruchomien+1))
@@ -46,6 +56,10 @@ def Zapis_zliczen():
     plikzliczenia.write(str(t21))
     plikzliczenia.write("\n")
     plikzliczenia.write(str(t22))
+    plikzliczenia.write("\n")
+    plikzliczenia.write(str(t31))
+    plikzliczenia.write("\n")
+    plikzliczenia.write(str(t32))
     plikzliczenia.close()
 def Wstep () :
     print ('\n###################################\nProfesjonalna gra w kolko i krzyzyk\n###################################')
@@ -61,7 +75,7 @@ def main() :
     Wstep()
     tryb =1
     while (tryb != 0) :
-        tryb = int(input('\nWybierz tryb gry:\n1 - Gra na planszy 3x3 \n2 - Gra na planszy 4x4\n0 - Wyjscie\n'))
+        tryb = int(input('\nWybierz tryb gry:\n1 - Gra na planszy 3x3 \n2 - Gra na planszy 4x4\n3 - Gra na planszy 5x5\n0 - Wyjscie\n'))
         if (tryb == 1) :
             tryb1 = int (input('Wybrales gre 3x3, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n0 - Cofnij\n'))
             if (tryb1 == 0) :
@@ -74,6 +88,7 @@ def main() :
                 print ('Gra z botem niezaimplementowana') #3x3 GRA Z KOMPUTEREM TO DO
                 global t12
                 t12+=1
+
         if (tryb == 2) :
             tryb2 = int (input('Wybrales gre 4x4, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n0 - Cofnij\n'))
             if (tryb2 == 0) :
@@ -86,6 +101,19 @@ def main() :
                 print ('Gra z botem niezaimplementowana') #4x4 GRA Z KOMPUTEREM TO DO
                 global t22
                 t22+=1
+
+        if (tryb == 3) :
+            tryb3 = int (input('Wybrales gre 4x4, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n0 - Cofnij\n'))
+            if (tryb3 == 0) :
+                print ("Cofam...")
+            elif (tryb3 == 1) :
+                print ('\nRozpoczynam gre na planszy 5x5 bez bota\n')
+                global t31
+                t31+= nobot5x5.main()
+            elif (tryb3 == 2) :
+                print ('Gra z botem niezaimplementowana') #5x5 GRA Z KOMPUTEREM TO DO
+                global t32
+                t32+=1
     Zapis_zliczen()
     print ('Zegnaj')
     exit(0)

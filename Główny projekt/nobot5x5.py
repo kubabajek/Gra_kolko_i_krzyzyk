@@ -1,17 +1,20 @@
 def print_tic_tac_toe(values):
     print("\n")
-    print("\t     |     |     |")
-    print("\t  {}  |  {}  |  {}  |  {}".format(values[0], values[1], values[2], values[3]))
-    print('\t_____|_____|_____|_____')
-    print("\t     |     |     |")
-    print("\t  {}  |  {}  |  {}  |  {}".format(values[4], values[5], values[6], values[7]))
-    print('\t_____|_____|_____|_____')
-    print("\t     |     |     |")
-    print("\t  {}  |  {}  |  {}  |  {}".format(values[8], values[9], values[10], values[11]))
-    print('\t_____|_____|_____|_____')
-    print("\t     |     |     |")
-    print("\t  {}  |  {}  |  {}  |  {}".format(values[12], values[13], values[14], values[15]))
-    print("\t     |     |     |")
+    print("\t     |     |     |     |")
+    print("\t  {}  |  {}  |  {}  |  {}  |  {}".format(values[0], values[1], values[2], values[3], values[4]))
+    print('\t_____|_____|_____|_____|_____')
+    print("\t     |     |     |     |")
+    print("\t  {}  |  {}  |  {}  |  {}  |  {}".format(values[5], values[6], values[7], values[8], values[[9]]))
+    print('\t_____|_____|_____|_____|_____')
+    print("\t     |     |     |     |")
+    print("\t  {}  |  {}  |  {}  |  {}  |  {}".format(values[10], values[11], values[12], values[13], values[14]))
+    print('\t_____|_____|_____|_____|_____')
+    print("\t     |     |     |    |")
+    print("\t  {}  |  {}  |  {}  |  {}  |  {}".format(values[15], values[16], values[17], values[18], values [19]))
+    print('\t_____|_____|_____|_____|_____')
+    print("\t     |     |     |     |")
+    print("\t  {}  |  {}  |  {}  |  {}  |  {}".format(values[20], values[21], values[22], values[23], values[[24]]))
+    print("\t     |     |     |    |")
     print("\n")
 
 
@@ -31,7 +34,10 @@ def print_scoreboard(score_board):
 # Function to check if any player has won
 def check_win(player_pos, cur_player):
     # All possible winning combinations
-    soln = [[1, 2, 3], [2, 3, 4], [5, 6, 7], [6,7,8], [9,10,11], [10,11,12], [13,14,15], [14,15,16],[1,5,9],[5,9,13],[2,6,10],[6,10,14],[3,7,11],[7,11,15],[4,8,12],[8,12,16],[2,7,12],[1,6,11],[6,11,16],[5,10,15],[3,6,9],[4,7,10],[7,10,13],[8,11,14]]
+    soln = [[1,2,3], [2,3,4], [3,4,5], [6,7,8], [7,8,9], [8,9,10], [11, 12, 13], [12,13,14], [13,14,15,], [16,17,17], [17,18,19], [18,19,20], [21,22,23,], [22,23,24], [23,24,25],
+            [1,6,11], [6,11,16], [11,16,21], [2,7,12], [7,12,17], [12,17,22], [3,8,13], [8,13,18], [13,18,23], [4,9,14], [9,14,19], [14,19,24], [5,10,15], [10,15,20], [15,20,25],
+            [3,9,15], [2,8,14], [8,14,20], [1,7,13], [7,13,19], [13,19,25], [6,12,18], [12,18,24], [11,17,23],
+            [3,7,11], [4,8,12], [8,12,16], [5,9,13], [9,13,17], [13,17,21], [10,14,18], [14,18,22], [15,19,23]]
 
     # Loop to check if any winning combination is satisfied
     for x in soln:
@@ -44,7 +50,7 @@ def check_win(player_pos, cur_player):
 
 # Function to check if the game is drawn
 def check_draw(player_pos):
-    if len(player_pos['X']) + len(player_pos['O']) == 16:
+    if len(player_pos['X']) + len(player_pos['O']) == 25:
         return True
     return False
 
@@ -52,7 +58,7 @@ def check_draw(player_pos):
 # Function for a single game of Tic Tac Toe
 def single_game(cur_player):
     # Represents the Tic Tac Toe
-    values = [' ' for x in range(16)]
+    values = [' ' for x in range(25)]
 
     # Stores the positions occupied by X and O
     player_pos = {'X': [], 'O': []}
@@ -70,7 +76,7 @@ def single_game(cur_player):
             continue
 
         # Sanity check for MOVE inout
-        if move < 1 or move > 16:
+        if move < 1 or move > 25:
             print("Wrong Input!!! Try Again")
             continue
 

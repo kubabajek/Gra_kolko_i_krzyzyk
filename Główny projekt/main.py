@@ -55,12 +55,13 @@ def Wstep () :
     print ('###################################')
     print ('Loading...')
     time.sleep(5)
+    print(""\n\n\n\n\n\n\n\n\")
 def main() :
     Zliczanie()
     Wstep()
     tryb =1
     while (tryb != 0) :
-        tryb = int(input('\n\n\n\n\n\n\nWybierz tryb gry:\n1 - Gra na planszy 3x3 \n2 - Gra na planszy 4x4- \n0 - Wyjscie\n'))
+        tryb = int(input('Wybierz tryb gry:\n1 - Gra na planszy 3x3 \n2 - Gra na planszy 4x4\n0 - Wyjscie\n'))
         if (tryb == 1) :
             tryb1 = int (input('Wybrales gre 3x3, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n0 - Cofnij\n'))
             if (tryb1 == 0) :

@@ -8,12 +8,12 @@ def Zliczanie():
     global uruchomien
     global t11
     global t12
-    global t13
     global t21
+    global t22
     ulubionytryb = 'Nieustalony'
     if os.path.exists('zliczenia.txt') == False:
         plikzliczenia = open('zliczenia.txt','w') #STRUKTURA PLIKU: uruchomiem, kolejnetryby11, 12, 13, 21, 22 ...
-        plikzliczenia.write("1\n0\n0\n0\n")
+        plikzliczenia.write("1\n0\n0\n0\n0\n")
         plikzliczenia.close()
     plikzliczenia = open('zliczenia.txt', 'r')
     linie=plikzliczenia.readlines()
@@ -22,14 +22,19 @@ def Zliczanie():
     t11=int(linie[1])
     t12=int(linie[2])
     t21=int(linie[3])
+    t22=int(linie[4])
 
 
 #Ustalanie ulubionego trybu gry
-    if (t11 > max(t12,t21)) :
+    if (t11 > max(t12,t21,t22)) :
         ulubionytryb = '3x3 z kolega'
-    if (t12 > max(t11,t21)) :
+    if (t12 > max(t11,t21, t22)) :
         ulubionytryb = '3x3 z komputerem'
-    zagran = t11 + t12 + t21
+    if (t21 > max(t11, t12, t22)) :
+        ulubionytryb = '4x4 z kolega'
+    if (t22 > max(t11, t12, t21)) :
+        ulubionytryb = '4x4 z komputerem'
+    zagran = t11 + t12 + t21 + t22
 def Zapis_zliczen():
     plikzliczenia = open('zliczenia.txt','w')
     plikzliczenia.write(str(uruchomien+1))
@@ -39,6 +44,8 @@ def Zapis_zliczen():
     plikzliczenia.write(str(t12))
     plikzliczenia.write("\n")
     plikzliczenia.write(str(t21))
+    plikzliczenia.write("\n")
+    plikzliczenia.write(str(t22))
     plikzliczenia.close()
 def Wstep () :
     print ('\n###################################\nProfesjonalna gra w kolko i krzyzyk\n###################################')
@@ -53,7 +60,7 @@ def main() :
     Wstep()
     tryb =1
     while (tryb != 0) :
-        tryb = int(input('\n\n\n\n\n\n\nWybierz tryb gry:\n1 - Gra na planszy 3x3 \n2 - \n0 - Wyjscie\n'))
+        tryb = int(input('\n\n\n\n\n\n\nWybierz tryb gry:\n1 - Gra na planszy 3x3 \n2 - Gra na planszy 4x4- \n0 - Wyjscie\n'))
         if (tryb == 1) :
             tryb1 = int (input('Wybrales gre 3x3, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n0 - Cofnij\n'))
             if (tryb1 == 0) :

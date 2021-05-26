@@ -87,6 +87,15 @@ def main() :
                 print ('Rozpoczynam gre na planszy 3x3 z botem')
                 global t12
                 t12+=bot3x3.main()
+            elif (tryb1 == 3) :
+                print ('Rozpoczynam gre na planszy 3x3 bez bota na czas')
+                global t13
+                t13+=bot3x3.main() #BEZ BOTA NA CZAS 3x3 NAZWA PLIKU DO DODANIA!!!!!!!
+            elif (tryb1 == 4) :
+                print ('Rozpoczynam gre na planszy 3x3 z botem na czas')
+                global t14
+                t14+=bot3x3.main() #Z BOTEM NA CZAS 3x3 NAZWA PLIKU DO DODANIA!!!!
+
 
         if (tryb == 2) :
             tryb2 = int (input('Wybrales gre 4x4, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n0 - Cofnij\n'))

@@ -76,7 +76,7 @@ def main() :
     while (tryb != 0) :
         tryb = int(input('\nWybierz tryb gry:\n1 - Gra na planszy 3x3 \n2 - Gra na planszy 4x4\n3 - Gra na planszy 5x5\n0 - Wyjscie\n'))
         if (tryb == 1) :
-            tryb1 = int (input('Wybrales gre 3x3, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n0 - Cofnij\n'))
+            tryb1 = int (input('Wybrales gre 3x3, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n 3 - Z kolega na czas\n4 - Z komputerem na czas\n0 - Cofnij\n'))
             if (tryb1 == 0) :
                 print ("Cofam...")
             elif (tryb1 == 1) :

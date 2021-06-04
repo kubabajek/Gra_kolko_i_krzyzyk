@@ -45,7 +45,7 @@ def Zliczanie():
         ulubionytryb = '5x5 z komputerem'
     zagran = t11 + t12 + t21 + t22 + t31 + t32
 def Zapis_zliczen():
-    plikzliczenia = open('zliczenia.txt','w')
+    plikzliczenia = open('zliczenia.txt', 'w')
     plikzliczenia.write(str(uruchomien+1))
     plikzliczenia.write("\n")
     plikzliczenia.write(str(t11))
@@ -83,46 +83,33 @@ def main() :
                 print ('\nRozpoczynam gre na planszy 3x3 bez bota\n')
                 global t11
                 t11+=basicnobot.main()
+                Zapis_zliczen()
             elif (tryb1 == 2) :
                 print ('Rozpoczynam gre na planszy 3x3 z botem')
                 global t12
                 t12+=bot3x3.main()
+                Zapis_zliczen()
             elif (tryb1 == 3) :
                 print ('Rozpoczynam gre na planszy 3x3 bez bota na czas')
                 global t13
                 t13+=bot3x3.main() #BEZ BOTA NA CZAS 3x3 NAZWA PLIKU DO DODANIA!!!!!!!
+                Zapis_zliczen()
             elif (tryb1 == 4) :
                 print ('Rozpoczynam gre na planszy 3x3 z botem na czas')
                 global t14
                 t14+=bot3x3.main() #Z BOTEM NA CZAS 3x3 NAZWA PLIKU DO DODANIA!!!!
-
-
+                Zapis_zliczen()
         if (tryb == 2) :
-            tryb2 = int (input('Wybrales gre 4x4, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n0 - Cofnij\n'))
-            if (tryb2 == 0) :
-                print ("Cofam...")
-            elif (tryb2 == 1) :
-                print ('\nRozpoczynam gre na planszy 4x4 bez bota\n')
-                global t21
-                t21+= nobot4x4.main()
-            elif (tryb2 == 2) :
-                print ('Gra z botem niezaimplementowana') #4x4 GRA Z KOMPUTEREM TO DO
-                global t22
-                t22+=1
+            print ('\nRozpoczynam gre na planszy 4x4\n')
+            global t21
+            t21+= nobot4x4.main()
 
         if (tryb == 3) :
-            tryb3 = int (input('Wybrales gre 5x5, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n0 - Cofnij\n'))
-            if (tryb3 == 0) :
-                print ("Cofam...")
-            elif (tryb3 == 1) :
-                print ('\nRozpoczynam gre na planszy 5x5 bez bota\n')
-                global t31
-                t31+= nobot5x5.main()
-            elif (tryb3 == 2) :
-                print ('Gra z botem niezaimplementowana') #5x5 GRA Z KOMPUTEREM TO DO
-                global t32
-                t32+=1
-    Zapis_zliczen()
+            print ('\nRozpoczynam gre na planszy 5x5\n')
+            global t31
+            t31+= nobot5x5.main()
+            Zapis_zliczen()
+
     print ('Zegnaj')
     exit(0)
 

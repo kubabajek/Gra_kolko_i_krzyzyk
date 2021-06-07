@@ -56,3 +56,6 @@ Jakub Bilski rozpoczął pracę nad modyfikacją kodu gry do wprowadzenia czasu.
 Ostatni już podział obowiązków w grupie.
 Jakub Bajek skończył kod głównego pliku gry, który od teraz nie będzie wymagał
 żadnych modyfikacji mimo wprowadzenia brakujących trybów gry.
+
+6 czerwca 2021:
+Oskar Brandys stworzył funkcje umożliwiającą zapis statystyk z gry do pliku

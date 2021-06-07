@@ -1,3 +1,6 @@
+from DataClasses.DataGamesResult import DataGamesResult
+
+
 def print_tic_tac_toe(values):
     print("\n")
     print("\t     |     |")
@@ -183,4 +186,5 @@ def main():
             cur_player = player2
         else:
             cur_player = player1
-    return liczbagier
+
+    return DataGamesResult(liczbagier, score_board)

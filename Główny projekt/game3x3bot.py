@@ -1,4 +1,7 @@
+from DataClasses.DataGamesResult import DataGamesResult
 import random
+
+
 def print_tic_tac_toe(values):
     print("\n")
     print("\t     |     |")
@@ -205,4 +208,10 @@ def main():
             cur_player = player2
         else:
             cur_player = player1
-    return liczbagier
+
+    players_winnings = {}
+    for player, wins in score_board.items():
+        if player != 'Stupid bot':
+            players_winnings[player] = wins
+
+    return DataGamesResult(liczbagier, players_winnings)

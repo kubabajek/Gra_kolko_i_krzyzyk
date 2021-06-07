@@ -69,6 +69,33 @@ def zapis_zliczen():
     plikzliczenia.close()
 
 
+def statystyki_inicjalizacja():
+    global wygrane_graczy
+    wygrane_graczy = {}
+
+    # --- File structure ---
+    # [player name] [player wins]
+
+    if not os.path.exists('statystyki.txt'):
+        plik_statystyki = open('statystyki.txt', 'w')
+        plik_statystyki.close()
+
+    plik_statystyki = open('statystyki.txt', 'r')
+    lines = plik_statystyki.readlines()
+    plik_statystyki.close()
+
+    for line in lines:
+        line_data = line.split()
+        wygrane_graczy[line_data[0]] = int(line_data[1])
+
+
+def zapis_statystyki():
+    plik_statystyki = open('statystyki.txt', 'w')
+    plik_statystyki.truncate()
+    for player, wins in wygrane_graczy.items():
+        plik_statystyki.write(player + " " + str(wins) + "\n")
+    plik_statystyki.close()
+
 def wstep():
     print ('\n###################################\nProfesjonalna gra w kolko i krzyzyk\n###################################')
     if uruchomien == 10:
@@ -89,9 +116,11 @@ def wstep():
 
 def main() :
     zliczanie()
+    statystyki_inicjalizacja()
     wstep()
     tryb = 1 #dowolna wartosc rozna od zera zeby ponizsza petla sie wykonywala
     while tryb != 0 :
+        global wygrane_graczy
         tryb = int(input('\nWybierz tryb gry:\n1 - Gra na planszy 3x3 dodatkowe funkcjonalnosci \n2 - Gra na planszy 4x4 w dwie osoby\n3 - Gra na planszy 5x5 w dwie osoby\n0 - Wyjscie\n'))
         if tryb == 1 :
             tryb1 = int (input('Wybrales gre 3x3, wybierz rodzaj\n1 - Z kolega \n2 - Z komputerem \n3 - Z kolega na czas\n4 - Z komputerem na czas\n0 - Cofnij\n'))
@@ -100,32 +129,75 @@ def main() :
             elif tryb1 == 1 :
                 print ('\nRozpoczynam gre na planszy 3x3 z przyjacielem\n')
                 global t11
-                t11 += game3x3.main()
+                gamesResult = game3x3.main()
+                t11 += gamesResult.games_played
+                for player, wins in gamesResult.players_winnings.items():
+                    if player in wygrane_graczy:
+                        wygrane_graczy[player] += wins
+                    else:
+                        wygrane_graczy[player] = wins
                 zapis_zliczen()
+                zapis_statystyki()
             elif tryb1 == 2:
                 print ('Rozpoczynam gre na planszy 3x3 z komputerem')
                 global t12
-                t12 += game3x3bot.main()
+                gamesResult = game3x3bot.main()
+                t12 += gamesResult.games_played
+                for player, wins in gamesResult.players_winnings.items():
+                    if player in wygrane_graczy:
+                        wygrane_graczy[player] += wins
+                    else:
+                        wygrane_graczy[player] = wins
                 zapis_zliczen()
+                zapis_statystyki()
             elif tryb1 == 3:
                 print ('Rozpoczynam gre na planszy 3x3 z przyjacielem na czas')
                 global t13
-                t13 += game3x3time.main()
+                gamesResult = game3x3time.main()
+                t13 += gamesResult.games_played
+                for player, wins in gamesResult.players_winnings.items():
+                    if player in wygrane_graczy:
+                        wygrane_graczy[player] += wins
+                    else:
+                        wygrane_graczy[player] = wins
                 zapis_zliczen()
+                zapis_statystyki()
             elif tryb1 == 4 :
                 print ('Rozpoczynam gre na planszy 3x3 z komputerem na czas')
                 global t14
-                t14 += game3x3timebot.main()
+                gamesResult = game3x3timebot.main()
+                t14 += gamesResult.games_played
+                for player, wins in gamesResult.players_winnings.items():
+                    if player in wygrane_graczy:
+                        wygrane_graczy[player] += wins
+                    else:
+                        wygrane_graczy[player] = wins
                 zapis_zliczen()
+                zapis_statystyki()
         if tryb == 2 :
             print ('\nRozpoczynam gre na planszy 4x4\n')
             global t20
-            t20 += game4x4.main()
+            gamesResult = game4x4.main()
+            t20 += gamesResult.games_played
+            for player, wins in gamesResult.players_winnings.items():
+                if player in wygrane_graczy:
+                    wygrane_graczy[player] += wins
+                else:
+                    wygrane_graczy[player] = wins
+            zapis_zliczen()
+            zapis_statystyki()
         if tryb == 3:
             print ('\nRozpoczynam gre na planszy 5x5\n')
             global t30
-            t30 += game5x5.main()
+            gamesResult = game5x5.main()
+            t30 += gamesResult.games_played
+            for player, wins in gamesResult.players_winnings.items():
+                if player in wygrane_graczy:
+                    wygrane_graczy[player] += wins
+                else:
+                    wygrane_graczy[player] = wins
             zapis_zliczen()
+            zapis_statystyki()
     print ('Zegnaj')
     exit(0)
 

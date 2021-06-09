@@ -1,0 +1,70 @@
+Dokumentacja projektu
+
+PRZEDMIOT: Narzędzia pracy grupowej
+GRUPA: 3
+TEMAT: 11
+CZŁONKOWIE GRUPY: Jakub Bajek, Oskar Brandys, Jakub Bilski, Łukasz Brynkus
+LINK DO REPOZYTORIUM: https://github.com/NPG-3/Repozytorium
+
+Wybrany przez nas temat projektu to stworzenie gry w kółko i krzyżyk, zawierający następujące
+funkcjonalności
+1. Implelemtacja gry na planszach 3x3, 4x4, 5x5.
+2. Gra z komputerem.
+3. Statystyki wygranych zapamiętywanych nawet po wyłączeniu programu.
+4. Możliwość cofnięcia ruchu.
+5. Tryb gry na czas.
+6. Jedna zaproponowane przez grupę.
+
+Pracę nad zadaniem rozpoczęliśmy od dogłębnej powtórki języka Python, z którym
+po pierwszym semestrze mieliśmy tylko delikatny kontakt. Podstawy powtarzaliśmy
+przez prawie miesiąc korzystając z poradników na YouTubie. Następnie dokonaliśmy 
+pierwszego podziału obowiązków i rozpoczęliśmy pracę nad projektem.
+
+31 kwietnia 2021:
+Stworzyliśmy bazowy kod do gry na planszy 3x3
+Umożliwiał on dość prostą jego edycję do dodawania kolejnych funkcji
+Pracowaliśmy jeszcze na plikach lokalnych, gdyż nie mieliśmy kodu z menu gry
+
+11 maja 2021:
+Zmodyfikowaliśmy utworzony wcześniej kod, rozszerzając jego funkcjonalność
+na większe plansze, tj. 4x4 oraz 5x5.
+Dalej pracowaliśmy wspólnie na plikach lokalnych z użyciem środków komunikacji
+ułatwiających zdalną pracę na jednym komputerze - Discorda
+
+14 maja 2021:
+Jakub Bajek stworzył kod głównego pliku, z którego poziomu można wybierać
+i uruchamiać stworzone wcześniej tryby gry - menu
+
+Wspólnie wymyśliliśmy dodatkową funkcjonalność, która była od nas wymagana.
+Przy uruchomieniu gra wyświetla zliczoną liczbę uruchomień, wyświetlając specjalną wiadomość
+przy dziesiątnym, setnym i tysięcznym uruchomieniu. Dodatkowo pokazuję łączną liczbę zagranych
+partii oraz na podstawie ilości wybrań danego trybu przypisuje i wyświetla tzw "ulubiony tryb"
+czyli ten najczęściej uruchamiany, wszystko będzie zapisywane w pliku tekstowym, żeby nie ginęło
+po wyłączeniu gry
+
+15 maja 2021:
+Jakub Bajek wprowadził w życie wymysloną wcześniej dodatkową funkcjonalność. Dodatkowo jeszcze
+stworzył prostą, sztuczną inteligencję, umożliwiającą grę z komputerem.
+
+19 maja 2021:
+Ponownie podzieliliśmy się pozostałą pracą w grupie, delikatnie zmieniając przydział
+obowiązków. Dodatkowo w czasie lekcji:
+Jakub Bajek pracował nad dostosowaniem kodu menu gry do dodatkowych funkcjonalności
+Jakub Bilski rozpoczął pracę nad modyfikacją kodu gry do wprowadzenia czasu.
+
+4 czerwca 2021:
+Ostatni już podział obowiązków w grupie.
+Jakub Bajek skończył kod głównego pliku gry, który od teraz nie będzie wymagał
+żadnych modyfikacji mimo wprowadzenia brakujących trybów gry.
+
+6 czerwca 2021:
+Oskar Brandys stworzył funkcje umożliwiającą zapis statystyk z gry do pliku
+
+8 czerwca 2021:
+Jakub Bilski stworzył kod, dzięki któremu można wybrać czas na ruch
+Jakub Bilski dodał funkcjonalność cofania ruchu
+
+9 czerwca 2021:
+Ostatnia synchronizacja plików z serwerem
+
+PROJEKT ZAKOŃCZONY :)

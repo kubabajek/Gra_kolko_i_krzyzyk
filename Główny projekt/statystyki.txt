@@ -1,0 +1,5 @@
+dwsf 4
+jan 3
+efe 1
+e 0
+wf 0

@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e386ce78-e444-40df-8056-a913bea95b98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basicnobot.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot3x3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nobot4x4.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nobot5x5.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/statystyki.txt" beforeDir="false" afterPath="$PROJECT_DIR$/statystyki.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zliczenia.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zliczenia.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +35,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CLION/python/mdig-agh-lang_python__exercises-f7e2f5ec0686/skeletons/basics-1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CLION/python/mdig-agh-lang_python__exercises-f7e2f5ec0686/skeletons/catalogue-1" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="pyconsole" />
   </component>

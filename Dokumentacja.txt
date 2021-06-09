@@ -59,3 +59,12 @@ Jakub Bajek skończył kod głównego pliku gry, który od teraz nie będzie wym
 
 6 czerwca 2021:
 Oskar Brandys stworzył funkcje umożliwiającą zapis statystyk z gry do pliku
+
+8 czerwca 2021:
+Jakub Bilski stworzył kod, dzięki któremu można wybrać czas na ruch
+Jakub Bilski dodał funkcjonalność cofania ruchu
+
+9 czerwca 2021:
+Ostatnia synchronizacja plików z serwerem
+
+PROJEKT ZAKOŃCZONY :)

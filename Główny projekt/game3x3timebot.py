@@ -1,6 +1,6 @@
-from DataClasses.DataGamesResult import DataGamesResult
 import random
-
+import time
+from threading import Thread
 
 def print_tic_tac_toe(values):
     print("\n")
@@ -61,12 +61,16 @@ def single_game(cur_player,bot):
     # Stores the positions occupied by X and O
     player_pos = {'X': [], 'O': []}
 
+    print("Zdecyduj ile czasu masz na przemyślenie ruch i podaj go w następnym poleceniu.")
+
+    t = int(input("Podaj czas w sekundach: "))
+
     # Game Loop for a single game of Tic Tac Toe
     while True:
         print_tic_tac_toe(values)
 
         # Try exception block for MOVE input, rozegranie bota
-        if (cur_player==bot):
+        if cur_player == bot:
             try:
                 print("Ruch gracza:  ", cur_player, ". Ktore pole? : ", end="")
                 move = random.randint(1,9)
@@ -83,8 +87,17 @@ def single_game(cur_player,bot):
             if values[move - 1] != ' ':
                 print("To pole jest juz zajete, wybierz inne")
                 continue
-  #Normalne rozegranie
-        elif (cur_player!=bot) :
+
+            values[move - 1] = cur_player
+
+
+        #Normalne rozegranie
+
+        elif cur_player != bot:
+
+            thread = Thread(target=countdown(t))
+            thread.start()
+            
             try:
                 print("Ruch gracza:  ", cur_player, ". Ktore pole? : ", end="")
                 move = int(input())
@@ -104,8 +117,21 @@ def single_game(cur_player,bot):
 #################################################################3
         # Update game information
 
-        # Updating grid status
-        values[move - 1] = cur_player
+            try:
+                print("Czy chcesz cofnąć ruch? \n 1 - Tak \n 2 - Nie")
+                remove = int(input())
+            except ValueError:
+                print("Nieprawidlowa wartosc, wpisz jeszcze raz")
+                continue
+
+            if remove == 1:
+                continue
+            elif remove == 2:
+                values[move - 1] = cur_player
+            else:
+                print("Nieprawidlowa wartosc")
+                continue
+            # Updating grid status
 
         # Updating player positions
         player_pos[cur_player].append(move)
@@ -129,6 +155,16 @@ def single_game(cur_player,bot):
             cur_player = 'O'
         else:
             cur_player = 'X'
+
+
+def countdown(t):
+
+    while t >= 0:
+        mins, secs = divmod(t, 60)
+        timer = '{:02d}:{:02d}'.format(mins, secs)
+        print(timer, end="\r")
+        time.sleep(1)
+        t -= 1
 
 
 def main():
@@ -173,7 +209,7 @@ def main():
             player_choice['X'] = cur_player
             if cur_player == player1:
                 player_choice['O'] = player2
-                bot=options[1];
+                bot=options[1]
             else:
                 player_choice['O'] = player1
 
@@ -195,7 +231,7 @@ def main():
             print("Nieprawidlowa wartosc, wpisz dobra\n")
 
         # Stores the winner in a single game of Tic Tac Toe
-        winner = single_game(options[choice - 1],bot)
+        winner = single_game(options[choice - 1], bot)
 
         # Edits the scoreboard according to the winner
         if winner != 'D':

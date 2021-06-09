@@ -1,4 +1,6 @@
 from DataClasses.DataGamesResult import DataGamesResult
+import time
+from threading import Thread
 
 
 def print_tic_tac_toe(values):
@@ -52,6 +54,8 @@ def check_draw(player_pos):
     return False
 
 
+
+
 # Function for a single game of Tic Tac Toe
 def single_game(cur_player):
     # Represents the Tic Tac Toe
@@ -60,11 +64,20 @@ def single_game(cur_player):
     # Stores the positions occupied by X and O
     player_pos = {'X': [], 'O': []}
 
+    print("Zdecydujcie ile czasu macie na przemyślenie ruch i podajcie go w następnym poleceniu.")
+
+    t = int(input("Podaj czas w sekundach: "))
+
     # Game Loop for a single game of Tic Tac Toe
+
     while True:
+
         print_tic_tac_toe(values)
 
         # Try exception block for MOVE input
+        thread = Thread(target=countdown(t))
+        thread.start()
+
         try:
             print("Ruch gracza:  ", cur_player, ". Ktore pole? : ", end="")
             move = int(input())
@@ -72,15 +85,39 @@ def single_game(cur_player):
             print("Nieprawidlowa wartosc, wpisz jeszcze raz")
             continue
 
-        # Sanity check for MOVE inout
+
         if move < 1 or move > 9:
             print("Nieprawidlowa wartosc, wpisz jeszcze raz")
             continue
 
-        # Check if the box is not occupied already
         if values[move - 1] != ' ':
             print("To pole jest juz zajete, wybierz inne")
             continue
+
+        try:
+            print("Czy chcesz cofnąć ruch? \n 1 - Tak \n 2 - Nie")
+            remove = int(input())
+        except ValueError:
+            print("Nieprawidlowa wartosc, wpisz jeszcze raz")
+            continue
+
+        if remove == 1:
+            continue
+        elif remove == 2:
+            values[move - 1] = cur_player
+        else:
+            print("Nieprawidlowa wartosc")
+            continue
+
+        # Updating player positions
+        player_pos[cur_player].append(move)
+
+
+        # Sanity check for MOVE inout
+
+
+        # Check if the box is not occupied already
+
 
         # Update game information
 
@@ -104,11 +141,25 @@ def single_game(cur_player):
             print("\n")
             return 'D'
 
+
         # Switch player moves
         if cur_player == 'X':
             cur_player = 'O'
         else:
             cur_player = 'X'
+
+
+
+def countdown(t):
+
+    while t >= 0:
+        mins, secs = divmod(t, 60)
+        timer = '{:02d}:{:02d}'.format(mins, secs)
+        print(timer, end="\r")
+        time.sleep(1)
+        t -= 1
+
+
 
 
 def main():
@@ -186,5 +237,4 @@ def main():
             cur_player = player2
         else:
             cur_player = player1
-
     return DataGamesResult(liczbagier, score_board)

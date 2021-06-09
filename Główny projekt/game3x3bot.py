@@ -1,4 +1,3 @@
-from DataClasses.DataGamesResult import DataGamesResult
 import random
 
 
@@ -61,12 +60,13 @@ def single_game(cur_player,bot):
     # Stores the positions occupied by X and O
     player_pos = {'X': [], 'O': []}
 
+
     # Game Loop for a single game of Tic Tac Toe
     while True:
         print_tic_tac_toe(values)
 
         # Try exception block for MOVE input, rozegranie bota
-        if (cur_player==bot):
+        if cur_player == bot:
             try:
                 print("Ruch gracza:  ", cur_player, ". Ktore pole? : ", end="")
                 move = random.randint(1,9)
@@ -83,8 +83,11 @@ def single_game(cur_player,bot):
             if values[move - 1] != ' ':
                 print("To pole jest juz zajete, wybierz inne")
                 continue
+
+            values[move - 1] = cur_player
   #Normalne rozegranie
-        elif (cur_player!=bot) :
+        elif cur_player != bot:
+            
             try:
                 print("Ruch gracza:  ", cur_player, ". Ktore pole? : ", end="")
                 move = int(input())
@@ -106,6 +109,20 @@ def single_game(cur_player,bot):
 
         # Updating grid status
         values[move - 1] = cur_player
+            try:
+                print("Czy chcesz cofnąć ruch? \n 1 - Tak \n 2 - Nie")
+                remove = int(input())
+            except ValueError:
+                print("Nieprawidlowa wartosc, wpisz jeszcze raz")
+                continue
+
+            if remove == 1:
+                continue
+            elif remove == 2:
+                values[move - 1] = cur_player
+            else:
+                print("Nieprawidlowa wartosc")
+                continue
 
         # Updating player positions
         player_pos[cur_player].append(move)

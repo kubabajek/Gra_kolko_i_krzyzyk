@@ -88,10 +88,20 @@ def single_game(cur_player):
             print("To pole jest juz zajete, wybierz inne")
             continue
 
-        # Update game information
+        try:
+            print("Czy chcesz cofnąć ruch? \n 1 - Tak \n 2 - Nie")
+            remove = int(input())
+        except ValueError:
+            print("Nieprawidlowa wartosc, wpisz jeszcze raz")
+            continue
 
-        # Updating grid status
-        values[move - 1] = cur_player
+        if remove == 1:
+            continue
+        elif remove == 2:
+            values[move - 1] = cur_player
+        else:
+            print("Nieprawidlowa wartosc")
+            continue
 
         # Updating player positions
         player_pos[cur_player].append(move)

@@ -1,6 +1,8 @@
+from DataClasses.DataGamesResult import DataGamesResult
 import random
 import time
 from threading import Thread
+
 
 def print_tic_tac_toe(values):
     print("\n")
@@ -89,10 +91,8 @@ def single_game(cur_player,bot):
                 continue
 
             values[move - 1] = cur_player
-
-
-        #Normalne rozegranie
-
+            
+  #Normalne rozegranie
         elif cur_player != bot:
 
             thread = Thread(target=countdown(t))
@@ -114,8 +114,6 @@ def single_game(cur_player,bot):
             if values[move - 1] != ' ':
                 print("To pole jest juz zajete, wybierz inne")
                 continue
-#################################################################3
-        # Update game information
 
             try:
                 print("Czy chcesz cofnąć ruch? \n 1 - Tak \n 2 - Nie")
@@ -131,7 +129,6 @@ def single_game(cur_player,bot):
             else:
                 print("Nieprawidlowa wartosc")
                 continue
-            # Updating grid status
 
         # Updating player positions
         player_pos[cur_player].append(move)
@@ -155,8 +152,8 @@ def single_game(cur_player,bot):
             cur_player = 'O'
         else:
             cur_player = 'X'
-
-
+            
+            
 def countdown(t):
 
     while t >= 0:
@@ -209,7 +206,7 @@ def main():
             player_choice['X'] = cur_player
             if cur_player == player1:
                 player_choice['O'] = player2
-                bot=options[1]
+                bot=options[1];
             else:
                 player_choice['O'] = player1
 
@@ -231,7 +228,7 @@ def main():
             print("Nieprawidlowa wartosc, wpisz dobra\n")
 
         # Stores the winner in a single game of Tic Tac Toe
-        winner = single_game(options[choice - 1], bot)
+        winner = single_game(options[choice - 1],bot)
 
         # Edits the scoreboard according to the winner
         if winner != 'D':

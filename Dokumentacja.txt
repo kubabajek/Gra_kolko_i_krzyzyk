@@ -13,7 +13,10 @@ funkcjonalności
 3. Statystyki wygranych zapamiętywanych nawet po wyłączeniu programu.
 4. Możliwość cofnięcia ruchu.
 5. Tryb gry na czas.
-6. Jedna zaproponowane przez grupę.
+6. Dodatkowa funkcjonalność: Przy uruchamianiu programu wyświetlać się będzie ilość uruchomień'
+oraz rozegranych gier. Dodatkowo program będzie wybierać i wyświetlać ulubiony tryb gry
+na podstawie zliczonych uruchomień poszczególnych rodzajów gry. Przy 10, 100 i 1000 uruchomieniu wyświetla
+się szczególna wiadomość.
 
 Pracę nad zadaniem rozpoczęliśmy od dogłębnej powtórki języka Python, z którym
 po pierwszym semestrze mieliśmy tylko delikatny kontakt. Podstawy powtarzaliśmy
